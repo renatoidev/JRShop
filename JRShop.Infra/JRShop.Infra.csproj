@@ -21,9 +21,4 @@
     <ProjectReference Include="..\JRShop.Dominio\JRShop.Dominio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mapeamentos\" />
-    <Folder Include="Repositorios\" />
-  </ItemGroup>
-
 </Project>

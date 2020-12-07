@@ -1,4 +1,5 @@
 ﻿using JRShop.Dominio.Entidades;
+using JRShop.Infra.Mapeamentos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,16 @@ namespace JRShop.Infra.Contextos
 
         public Contexto(DbContextOptions<Contexto> options) : base(options)
         {
+            
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UsuarioMap());
+            base.OnModelCreating(modelBuilder);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
