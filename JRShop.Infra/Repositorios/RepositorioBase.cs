@@ -44,7 +44,9 @@ namespace JRShop.Infra.Repositorios
 
         public void Remove(Guid id)
         {
-            throw new NotImplementedException();
+            var test = GetById(id);
+            DbSet.Remove(test);
+
         }
     }
 }

@@ -7,20 +7,16 @@ namespace JRShop.Dominio.Entidades
 {
     public class Usuario : Entity
     {
-        public string Nome { get; private set; }
-        public string Email { get; private set; }
-        public string Senha { get; private set; }
-
-        public Usuario()
-        {
-        }
-
+        public Usuario() { }
         public Usuario(string nome, string email, string senha)
         {
             Nome = nome;
             Email = email;
             Senha = senha;
         }
+        public string Nome { get; private set; }
+        public string Email { get; private set; }
+        public string Senha { get; private set; }
                 
         public void Encriptar()
         {

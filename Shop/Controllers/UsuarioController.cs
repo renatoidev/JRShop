@@ -2,11 +2,8 @@
 using JRShop.Dominio.Interfaces;
 using JRShop.Dominio.Modelos;
 using JRShop.Dominio.Validacoes;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace JRShop.Controllers
@@ -48,13 +45,12 @@ namespace JRShop.Controllers
 
             return Ok(validacao.Errors);
 
-
         }
 
 
         [HttpPost]
         [Route("loginUsuario")]
-        public async Task<IActionResult> GetUsuarioById(
+        public async Task<IActionResult> LoginUsuario(
             [FromServices] IUsuario repositorio, 
             [FromBody] LoginModelo loginModelo)
         {
@@ -67,5 +63,23 @@ namespace JRShop.Controllers
 
             return NotFound("Senha ou Login Incorreto");
         }
+        
+        [HttpDelete]
+        [Route("removeUsuario")]
+        public async Task<IActionResult> RemoveUsuario(
+            [FromServices] IUsuario repositorio,
+            [FromBody] Guid id)
+        {
+            if (id != null)
+            {
+                repositorio.Remove(id);
+                repositorio.SaveChanges();
+                return Ok();
+            }
+            return NotFound();
+            
+        }
+
+
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JRShop.Infra.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201207183236_JRShop")]
+    [Migration("20201208213657_JRShop")]
     partial class JRShop
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

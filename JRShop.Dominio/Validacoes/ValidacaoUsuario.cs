@@ -8,7 +8,6 @@ namespace JRShop.Dominio.Validacoes
 {
     public class ValidacaoUsuario : AbstractValidator<Usuario>
     {
-        
         public ValidacaoUsuario()
         {
             RuleFor(c => c.Nome).NotEmpty().WithMessage("O nome não pode ser vazio")
@@ -21,11 +20,7 @@ namespace JRShop.Dominio.Validacoes
             RuleFor(c => c.Senha).NotEmpty().WithMessage("A senha deve ser preenchida não pode ser vazia")
                                 .MaximumLength(214)
                                  .MinimumLength(2).WithMessage("Formato da senha incorreta");
-
-            //RuleFor(c => c.ConfirmPassword).Equal(c => c.Password).WithMessage("As senhas não conferem")
-            //                    .MaximumLength(214)
-            //                     .MinimumLength(2).WithMessage("Formato Password incorreto");
-
+            
         }
     }
 }
